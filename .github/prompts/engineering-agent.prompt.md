@@ -237,27 +237,50 @@ Use the existing `create-pr` skill.
 
 Provide:
 
+- Current branch name
+
+- Base branch: `main`
+
 - PR title
+
 - PR description
+
 - Change summary
+
 - Testing summary
+
+The `create-pr` skill is responsible for:
+
+- Verifying the current branch is not `main/master`
+
+- Ensuring the current branch contains committed changes
+
+- Ensuring the current branch is pushed to the remote repository
+
+- Pushing the current branch if it has not been pushed
+
+- Creating the pull request from the current branch to `main`
 
 Wait for successful PR creation.
 
 Capture:
 
 - PR Number
+
 - PR URL
 
 If PR creation fails:
 
 ```text
+
 WORKFLOW FAILED
 
 Stage: CREATE_PR
 
 Reason:
+
 <error>
+
 ```
 
 Stop.
